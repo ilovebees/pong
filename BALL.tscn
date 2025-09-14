@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3s2wbtjjdq56"]
+[gd_scene load_steps=4 format=3 uid="uid://3s2wbtjjdq56"]
 
 [ext_resource type="Script" uid="uid://cq330baexg35q" path="res://BALL.gd" id="1_cg82h"]
+[ext_resource type="AudioStream" uid="uid://sreem4igujqh" path="res://sound files/hit_sound.mp3" id="2_hhs3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhs3k"]
 size = Vector2(16, 16)
@@ -13,7 +14,6 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-color = Color(0.960784, 1, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hhs3k")
@@ -21,5 +21,8 @@ shape = SubResource("RectangleShape2D_hhs3k")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hhs3k")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

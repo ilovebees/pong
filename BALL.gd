@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var timer: Timer = $Timer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var direction = Vector2(0.0,0.0)
 var speed =300
@@ -21,12 +22,20 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		velocity=1.1*velocity.bounce(collision.get_normal())
-
-func _on_goal_body_entered(body: Node2D) -> void:
-	velocity=Vector2(0,0)
-	position = get_window().size/2 
-	timer.start() # Replace with function body.
+		audio_stream_player.play()
 
 
 func _on_timer_timeout() -> void:
-	reset_ball() # Replace with function body.
+	reset_ball() 
+
+
+func _on_player_2_goal_body_entered(body: Node2D) -> void:
+	velocity=Vector2(0,0)
+	position = get_window().size/2 
+	timer.start() 
+
+
+func _on_player_1_goal_body_entered(body: Node2D) -> void:
+	velocity=Vector2(0,0)
+	position = get_window().size/2 
+	timer.start() 

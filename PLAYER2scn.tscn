@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebnaj"]
 size = Vector2(16, 128)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="PLAYER2" type="CharacterBody2D"]
 script = ExtResource("1_pdygv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
